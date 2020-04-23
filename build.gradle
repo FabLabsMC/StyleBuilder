@@ -73,7 +73,7 @@ javadoc {
 		memberLevel = JavadocMemberLevel.PACKAGE
 		links(
 			    "https://maven.fabricmc.net/docs/fabric-api-${project.fabric_version}/",
-                "https://maven.fabricmc.net/docs/yarn-${project.yarn_build}/",
+                "https://maven.fabricmc.net/docs/yarn-${project.minecraft_version}+build.${project.yarn_build}/",
 				'https://guava.dev/releases/21.0/api/docs/',
 				'https://asm.ow2.io/javadoc/',
 				'https://docs.oracle.com/javase/8/docs/api/',
@@ -84,7 +84,7 @@ javadoc {
 		addStringOption('Xdoclint:none', '-quiet')
 	}
 	source sourceSets.main.allJava.srcDirs
-	classpath = sourceSets.main.compileClasspath
+	classpath = sourceSets.main.compileClasspath + sourceSets.main.output
 	include("**/api/**")
 	failOnError false
 }
